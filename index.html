@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>掘金跑者</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect fill='%23541c96' width='16' height='16'/%3E%3Crect fill='%23ffd23f' x='4' y='10' width='8' height='3'/%3E%3Crect fill='%23e79bff' x='6' y='3' width='4' height='5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cabinet">
+    <header class="topbar">
+      <div class="brand">
+        <canvas id="logo" width="32" height="32" aria-hidden="true"></canvas>
+        <div class="brand-text">
+          <h1>掘金跑者</h1>
+          <p class="tag">挖穿磚地 · 避開守衛 · 搬走金塊</p>
+        </div>
+      </div>
+      <div class="stats" aria-live="polite">
+        <div class="stat"><span class="k">第</span><b id="stageNum">1</b><span class="k">關</span></div>
+        <div class="stat stat-gold"><span class="k">金塊</span><b id="goldNum">0</b></div>
+        <div class="stat"><span class="k">生命</span><b id="livesNum">5</b></div>
+        <div class="stat"><span class="k">分數</span><b id="scoreNum">0</b></div>
+      </div>
+    </header>
+
+    <div class="screen-wrap" id="screenWrap">
+      <canvas id="game" width="448" height="280" aria-label="掘金跑者遊戲畫面"></canvas>
+      <p id="toast" class="toast" hidden></p>
+      <div id="overlay" class="overlay" hidden>
+        <div class="card" role="dialog" aria-modal="true" aria-labelledby="ovTitle">
+          <p class="eyebrow" id="ovEye"></p>
+          <h2 id="ovTitle"></h2>
+          <p id="ovText"></p>
+          <div class="card-actions">
+            <button type="button" id="ovBtn" class="btn primary"></button>
+            <button type="button" id="ovAlt" class="btn ghost" hidden></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stagebar">
+      <span id="levelName">淺層礦道</span>
+      <span id="bestScore" class="best" hidden>最高 <b id="bestNum">0</b></span>
+    </div>
+
+    <div class="toolbar">
+      <button type="button" id="btnRetry" class="btn">重試本關</button>
+      <button type="button" id="btnHelp" class="btn">玩法</button>
+      <button type="button" id="btnPause" class="btn">暫停</button>
+      <button type="button" id="btnMute" class="btn">音效開</button>
+    </div>
+
+    <div class="touch" id="touch">
+      <div class="dpad" role="group" aria-label="方向控制">
+        <button type="button" data-k="up" aria-label="上">▲</button>
+        <button type="button" data-k="left" aria-label="左">◀</button>
+        <button type="button" data-k="down" aria-label="下">▼</button>
+        <button type="button" data-k="right" aria-label="右">▶</button>
+      </div>
+      <div class="digpad" role="group" aria-label="挖磚">
+        <button type="button" data-k="digL" class="dig">挖左</button>
+        <button type="button" data-k="digR" class="dig">挖右</button>
+      </div>
+    </div>
+
+    <p class="hint">方向鍵或 WASD 移動爬梯　·　Z／Q／左 Shift 挖左　·　X／E／右 Shift 挖右　·　Esc 暫停</p>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
